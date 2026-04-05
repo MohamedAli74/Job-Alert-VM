@@ -1,0 +1,69 @@
+# VM config template — copy to config.yaml and fill in your values.
+# This file runs on Oracle Cloud (or any Linux server) 24/7.
+# It scrapes job sources and posts new matches to your Telegram channel.
+
+telegram:
+  # Create a bot via @BotFather. Add it as Administrator in your private channel.
+  bot_token: "YOUR_BOT_TOKEN_HERE"
+
+  # Your private channel ID (looks like -1001234567890).
+  # Forward a message from the channel to @userinfobot to get it.
+  chat_id: "YOUR_CHANNEL_ID_HERE"
+
+scheduler:
+  # How often to scrape for new jobs (minutes). Minimum: 5.
+  interval_minutes: 60
+
+sources:
+  # ── LinkedIn (no login required) ─────────────────────────────────────────────
+  - name: LinkedIn Israel
+    type: linkedin
+    url: "https://www.linkedin.com/jobs"
+    keywords: "software intern"
+    location: "Israel"
+
+  - name: LinkedIn UK
+    type: linkedin
+    url: "https://www.linkedin.com/jobs"
+    keywords: "software intern"
+    location: "United Kingdom"
+
+  # ── Indeed (via jobspy) ───────────────────────────────────────────────────────
+  - name: Indeed UK
+    type: indeed
+    url: "https://www.indeed.com"
+    keywords: "software intern"
+    location: "United Kingdom"
+    country: "UK"
+    hours_old: 72
+    results_wanted: 20
+
+  # ── JSON API ──────────────────────────────────────────────────────────────────
+  - name: RemoteOK
+    type: api_json
+    url: "https://remoteok.io/api"
+    fields:
+      title: position
+      company: company
+      location: location
+      url: url
+      skills: tags
+
+  # ── RSS Feed ──────────────────────────────────────────────────────────────────
+  - name: HN Jobs
+    type: rss
+    url: "https://hnrss.org/jobs"
+    fields:
+      title: title
+      url: link
+
+  # ── HTML Scrape ───────────────────────────────────────────────────────────────
+  # - name: MyCustomSite
+  #   type: html_scrape
+  #   url: "https://example.com/jobs"
+  #   selectors:
+  #     job_container: ".job-card"
+  #     title: "h2.title"
+  #     company: ".company-name"
+  #     url: "a[href]"
+  #     skills: ".tags"

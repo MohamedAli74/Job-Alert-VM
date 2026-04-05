@@ -1,0 +1,7 @@
+config.yaml
+seen_urls.db
+*.db
+venv/
+__pycache__/
+*.pyc
+.env

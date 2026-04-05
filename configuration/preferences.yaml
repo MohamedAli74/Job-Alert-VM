@@ -1,0 +1,60 @@
+# Your job search preferences.
+# Edit this file directly OR use the configure page at http://localhost:5001/configure
+
+seniority:
+  include:
+  - intern
+  - internship
+  - graduate
+  - entry level
+  - junior
+  exclude:
+  - senior
+  - sr.
+  - lead
+  - principal
+  - staff engineer
+  - manager
+  - director
+  - head of
+  - vp
+field_keywords:
+- software
+- engineer
+- developer
+- backend
+- frontend
+- full stack
+- devops
+- data
+- ml
+- ai
+- cyber
+- security
+- web
+- mobile
+- cloud
+- swe
+- sde
+locations:
+- remote
+- uk
+- london
+- israel
+- tel aviv
+- ramat gan
+- haifa
+- beer sheva
+- yokneam
+dashboard:
+  role_filters:
+  - Backend
+  - Full-stack
+  - Software Engineering
+  - Cyber Security
+  skill_filters:
+  - Python
+  - JavaScript
+  - React
+  - Java
+  - C++
