@@ -5,3 +5,5 @@ venv/
 __pycache__/
 *.pyc
 .env
+*.bat
+configuration\preferences.yaml
