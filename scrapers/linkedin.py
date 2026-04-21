@@ -32,7 +32,15 @@ def scrape(source: dict) -> list[JobResult]:
     keywords = source.get("keywords", "software intern")
     location = source.get("location", "")
 
-    params: dict = {"keywords": keywords, "location": location, "start": "0"}
+    # f_TPR: time posted range in seconds (r3600=1h, r86400=24h, r604800=1w)
+    hours = source.get("hours_posted", 24)
+    params: dict = {
+        "keywords": keywords,
+        "location": location,
+        "start": "0",
+        "f_TPR": f"r{hours * 3600}",
+        "sortBy": "DD",
+    }
     if source.get("remote_only"):
         params["f_WT"] = "2"
 
